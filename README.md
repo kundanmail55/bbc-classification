@@ -1,6 +1,6 @@
 # BBC text Classification
 
-Steps:
+Tasks performed:
 1. Imports
 2. Reading Data
     - Reading Folders
