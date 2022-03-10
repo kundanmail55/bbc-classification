@@ -36,7 +36,12 @@ Steps to run the Code:
     cd bbc-classification
 ```
 
-4. Run Command
+4. Install all the packages
 ```
-    python3 BBC_Classification.ipynb
+    pip install -r requirements.txt
+```
+
+5. Run Command
+```
+    python3 bbc_classification.py
 ```
