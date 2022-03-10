@@ -190,16 +190,22 @@ preprocess_text = Pipeline([
     ('tfidf', TfidfVectorizer())
 ])
 
+preprocess_text.fit_transform(X_train)
+
 # Processing integer using NumberSelector
 word = Pipeline([
     ('key', NumberSelector(key="word_count")),
     ('min_max', MinMaxScaler())
 ])
 
+word.fit_transform(X_train)
+
 char = Pipeline([
     ('key', NumberSelector(key="char_count")),
     ('min_max', MinMaxScaler())
 ])
+
+char.fit_transform(X_train)
 
 # Adding all feature to one using Feature Union
 feature_union = FeatureUnion([
@@ -229,6 +235,6 @@ pred = final_pipeline.predict(X_test)
 accuracy = accuracy_score(y_test, pred)
 print('Accuracy:', accuracy)
 precision, recall, f1score, support = score(y_test, pred, average='macro')
-print('Precision:', precision)
-print('Recall:', recall)
-print('F1 scrore:', f1score)
+print('macro-average precision:', precision)
+print('macro-average recall:', recall)
+print('macro-average F1 scrore:', f1score)
